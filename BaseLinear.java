@@ -1,3 +1,4 @@
+/* START OF FILE FOR FILE SETUP */
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -8,22 +9,19 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="BaseLinear", group="Linear Opmode")
-//@Disabled
 public class BaseLinear extends LinearOpMode {
 
-   // Declare OpMode members.
    private ElapsedTime runtime = new ElapsedTime();
    private DcMotor leftDrive = null;
    private DcMotor rightDrive = null;
-   private DcMotor leftArm = null;
-   private DcMotor rightArm = null;
-  private Servo leftServo = null;
-   private Servo rightServo = null;
+   private DcMotor armMotor = null;
+   private Servo clawServo = null;
 
    double servoPosition = 0.0;
 
    @Override
    public void runOpMode() {
+      /* DONT DO THIS */
        telemetry.addData("Status", "Initialized");
        telemetry.update();
 
@@ -36,12 +34,12 @@ public class BaseLinear extends LinearOpMode {
 
        leftDrive.setDirection(DcMotor.Direction.FORWARD);
        rightDrive.setDirection(DcMotor.Direction.REVERSE);
-
+/* TILL THIS */
        waitForStart();
        runtime.reset();
 
        while (opModeIsActive()) {
-
+/* DONT DO THIS */
            double leftPower;
            double rightPower;
 
@@ -94,8 +92,9 @@ public class BaseLinear extends LinearOpMode {
            telemetry.addData("Status", "Run Time: " + runtime.toString());
            telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
            telemetry.update();
+          /* TILL THIS */
        }
    }
 }
 
-
+/* END OF FILE FOR FILE SETUP */
