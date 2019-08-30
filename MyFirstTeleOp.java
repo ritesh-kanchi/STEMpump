@@ -25,13 +25,11 @@ public class MyFirstTeleOp extends LinearOpMode {
        telemetry.addData("Status", "Initialized");
        telemetry.update();
 
-       leftDrive  = hardwareMap.get(DcMotor.class, "Left_Motor");
-       rightDrive = hardwareMap.get(DcMotor.class, "Right_Motor");
-       leftArm  = hardwareMap.get(DcMotor.class, "Arm_Left_Motor");
-       rightArm = hardwareMap.get(DcMotor.class, "Arm_Right_Motor");
-      leftServo = hardwareMap.get(Servo.class, "Arm_Left_Servo");
-       rightServo = hardwareMap.get(Servo.class,"Arm_Right_Servo");
-
+       leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
+       rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
+       armMotor = hardwareMap.get(DcMotor.class, "arm_motor");
+       clawServo = hardwareMap.get(Servo.class, "claw_servo");
+       
        leftDrive.setDirection(DcMotor.Direction.FORWARD);
        rightDrive.setDirection(DcMotor.Direction.REVERSE);
 /* TILL THIS */
@@ -43,50 +41,21 @@ public class MyFirstTeleOp extends LinearOpMode {
            double leftPower;
            double rightPower;
 
-           double leftArmPower;
-           double rightArmPower;
+           double armPower = .9;
           
            double drive = -gamepad1.left_stick_y;
            double turn  = -gamepad1.right_stick_x;
            leftPower    = Range.clip(drive - turn, -1.0, 1.0) ;
            rightPower   = Range.clip(drive + turn, -1.0, 1.0) ;
 
-           leftArmPower = .90;
-           rightArmPower = .90;
           
            leftDrive.setPower(leftPower);
            rightDrive.setPower(rightPower);
 
-            leftServo.setPosition(-servoPosition);
-           rightServo.setPosition(servoPosition);
+           clawServo.setPosition(-servoPosition);
 
-           if (gamepad1.right_bumper) {
-               leftArm.setPower(leftArmPower);
-               rightArm.setPower(-rightArmPower);
-           }
-           if (gamepad1.left_bumper) {
-               leftArm.setPower(-leftArmPower);
-               rightArm.setPower(rightArmPower);
-           }
-           else {
-               leftArmPower = 0.0;
-               rightArmPower = 0.0;
-               leftArm.setPower(leftArmPower);
-               rightArm.setPower(rightArmPower);
-           }
 
-            if (gamepad1.a) {
-
-               leftServo.setPosition(-servoPosition);
-               rightServo.setPosition(servoPosition);
-           }
-
-           if (gamepad1.b) {
-               servoPosition = 1.0;
-               leftServo.setPosition(-servoPosition);
-               rightServo.setPosition(servoPosition);
-
-           }
+           /* GAME PAD CODE GOES HERE */
 
 
            telemetry.addData("Status", "Run Time: " + runtime.toString());
