@@ -37,31 +37,36 @@ public class MyFirstTeleOp extends LinearOpMode {
        runtime.reset();
 
        while (opModeIsActive()) {
-/* DONT DO THIS */
+/* OK U CAN DO THIS */
            double leftPower;
            double rightPower;
-
-           double armPower = .9;
           
            double drive = -gamepad1.left_stick_y;
            double turn  = -gamepad1.right_stick_x;
            leftPower    = Range.clip(drive - turn, -1.0, 1.0) ;
            rightPower   = Range.clip(drive + turn, -1.0, 1.0) ;
 
-          
            leftDrive.setPower(leftPower);
            rightDrive.setPower(rightPower);
 
-           clawServo.setPosition(-servoPosition);
 
-
-           /* GAME PAD CODE GOES HERE */
-
+           // Left Trigger = Up, Right Trigger = Down
+           armMotor.setPower(-gamepad1.left_trigger + gamepad1.right_trigger);
+           
+           if (gamepad1.a) {
+               clawServo.setPosition(servoPosition);
+               
+           }
+           
+           if (gamepad1.b){
+               clawServo.setPosition(-servoPosition);
+               
+           }
 
            telemetry.addData("Status", "Run Time: " + runtime.toString());
            telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
            telemetry.update();
-          /* TILL THIS */
+          /* AND THIS */
        }
    }
 }
