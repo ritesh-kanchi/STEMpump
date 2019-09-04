@@ -32,9 +32,9 @@ public class MyFirstAuton extends LinearOpMode {
        waitForStart();
        runtime.reset();
 
-     leftDrive.setPower(power)
-     rightDrive.setPower(power)
-     sleep(1000)
+     leftDrive.setPower(power);
+     rightDrive.setPower(power);
+     sleep(1000);
 
    }
 }
