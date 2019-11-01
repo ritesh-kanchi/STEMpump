@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-@TeleOp(name = "Mecanum", group = "Linear Opmode")
-public class Mecanum extends LinearOpMode {
+@TeleOp(name = "MyFirstMecanum", group = "Linear Opmode")
+public class MyFirstMecanum extends LinearOpMode {
 
     private DcMotor lF = null;
     private DcMotor rF = null;
