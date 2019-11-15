@@ -1,4 +1,4 @@
-# STEMPump
+# STEMpump
 Here you can find the completed files for the following STEMpump Programs:
 
 *   FTC
