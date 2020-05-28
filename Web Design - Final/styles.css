@@ -1,0 +1,44 @@
+ /* force body to use font and have black color for text, give image background */
+ body {
+  font-family: 'Public Sans'!important;
+  color: white!important;
+  background-image: url("3d.png")!important;
+  height: 100%;
+  background-repeat: no-repeat;
+background-size: 100%;
+	background-size: cover;
+	background-position: 50%;
+}
+/* force blog-title to be white */
+.blog-title {
+  color: white!important;
+  }
+ /* force nav-links to be semibold and have black color for text */
+ .nav-link {
+     color: white!important;
+     font-weight: 600;
+}
+ /* force active page to be underlined */
+ .active {
+     text-decoration: underline!important;
+}
+ /* force headings 1 and 5 to be bold */
+ h1,h5 {
+     font-weight: bold;
+     color: black!important;
+}
+ /* force headings 6 to be semibold */
+ h6 {
+     font-weight: 600;
+     color: black!important;
+}
+/* force paragraphs to be black */
+p {
+  color: black!important;
+  }
+  
+  .card {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15)!important;
+    border: none;
+    }
+ 
