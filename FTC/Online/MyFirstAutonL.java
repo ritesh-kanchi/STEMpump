@@ -58,15 +58,7 @@ public class MyFirstAutonL extends LinearOpMode {
     rightDrive.setPower(power);
     sleep(300);
 
-    // Go forward for 0.7 seconds
-    leftDrive.setPower(power);
-    rightDrive.setPower(power);
-    sleep(700);
 
-    // Turn left for 0.3 seconds
-    leftDrive.setPower(-power);
-    rightDrive.setPower(power);
-    sleep(300);
 
     // Go forward for 0.7 seconds
     leftDrive.setPower(power);
@@ -78,8 +70,6 @@ public class MyFirstAutonL extends LinearOpMode {
     rightDrive.setPower(power);
     sleep(300);
 
-    // Set motor power to 0
-    leftDrive.setPower(0);
-    rightDrive.setPower(0);
+
   }
 }

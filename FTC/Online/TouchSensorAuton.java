@@ -51,8 +51,20 @@ public class TouchSensorAuton extends LinearOpMode {
         power *= -1;
       }
 
+      // FUNCTIONS DO LATER
+
+      if (isTouched(touchSensorB)) {
+        power *= -1;
+      }
+
       // OPTION 2
       if (touchSensorF.getState() || touchSensorB.getState()) {
+        power = -power;
+      }
+
+      // FUNCTIONS
+
+      if (isTouched(touchSensorF) || isTouched(touchSensorB)) {
         power = -power;
       }
 
@@ -65,8 +77,34 @@ public class TouchSensorAuton extends LinearOpMode {
             power = 0.35;
         }
 
+        // FUNCTIONS
+
+        if(isTouched(touchSensorF)) {
+          power = -modPower();
+        }
+
+        if(isTouched(touchSensorB)) {
+          power = modPower();
+        }
+
       leftDrive.setPower(power);
       rightDrive.setPower(power);
     }
+  }
+
+  public boolean isTouched(DigitalChannel touchSensor) {
+    if(touchSensor.getState()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public double modPower() {
+    double modPower = power*0.85;
+    return modPower;
+
+    // could make into one line
+    // return power*0.85;
   }
 }
