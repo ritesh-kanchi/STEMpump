@@ -1,5 +1,4 @@
 # Block 1
-import matplotlib.pyplot as plt
 import tensorflow as tf
 
 # Block 2
@@ -31,6 +30,7 @@ history = model.fit(celsius_q, fahrenheit_a, epochs=1000, verbose=True)
 print("Finished training the model")
 
 # Block 8
+import matplotlib.pyplot as plt
 plt.xlabel('Epoch Number')
 plt.ylabel("Loss Magnitude")
 plt.plot(history.history['loss'])
